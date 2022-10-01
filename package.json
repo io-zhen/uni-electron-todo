@@ -1,0 +1,120 @@
+{
+	"name": "KXKY-Todo",
+	"version": "1.0.0",
+	"main": "./src/electron/electron.js",
+	"description": "electron+uni-app+vite+vue3+unicloud by KXKY 2022-09-24",
+	"author": {
+		"email": "947876@qq.com",
+		"name": "asstudio"
+	},
+	"build": {
+		"appId": "com.wangzhen.cc.",
+		"productName": "KXKY-云记事",
+		"copyright": "Copyright © 2022-09-09 -KXKY",
+		"extends": null,
+		"asar": true,
+		"electronDownload": {
+			"mirror": "https://npm.taobao.org/mirrors/electron/"
+		},
+		"nsis": {
+			"oneClick": false,
+			"allowToChangeInstallationDirectory": true,
+			"perMachine": true,
+			"allowElevation": true,
+			"installerIcon": "./src/static/icon/note2.ico",
+			"menuCategory": "KXKY-云记事",
+			"shortcutName": "KXKY-云记事",
+			"createDesktopShortcut": true,
+			"createStartMenuShortcut": true
+		},
+		"win": {
+			"target": [
+				"nsis"
+			],
+			"icon": "./src/static/icon/note2.ico",
+			"artifactName": "${productName}-Setup-${version}.${ext}",
+			"publisherName": "KXKY",
+			"requestedExecutionLevel": "highestAvailable"
+		},
+		"extraResources": [
+			{
+				"from": "./src/nedb",
+				"to": "./nedb"
+			}
+		],
+		"files": [
+			"dist/**/*",
+			"./src/electron/**/*",
+			"./src/static/**/*"
+		],
+		"directories": {
+			"buildResources": "assets",
+			"output": "dist_electron"
+		}
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"node_modules",
+			"dist"
+		],
+		"delay": "1000",
+		"watch": [
+			"package.json",
+			"src/electron"
+		],
+		"ext": "js,json,html,vue",
+		"env": {
+			"NODE_ENV": "development",
+			"PORT": "3000"
+		}
+	},
+	"scripts": {
+		"dist": "electron-builder --win --ia32",
+		"unidist": "cli publish --platform h5 --project uni-electron-cloud && electron-builder --win --ia32",
+		"start": "wait-on tcp:3000  && nodemon  --exec electron .",
+		"dev:custom": "uni -p",
+		"dev:h5": "uni",
+		"dev:h5:ssr": "uni --ssr",
+		"build:electron": "electron-builder --win --ia32",
+		"build:custom": "uni build -p",
+		"build:h5": "uni build",
+		"build:h5:ssr": "uni build --ssr"
+	},
+	"dependencies": {
+		"@dcloudio/uni-app": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-app-plus": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-components": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-h5": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-mp-alipay": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-mp-baidu": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-mp-kuaishou": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-mp-lark": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-mp-qq": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-mp-toutiao": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-mp-weixin": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3060320220917001",
+		"@vueuse/core": "^9.2.0",
+		"electron-is-dev": "^2.0.0",
+		"nedb": "^1.8.0",
+		"qiao-sqlite": "^0.3.8",
+		"vue": "^3.2.37",
+		"vue-i18n": "^9.1.9",
+		"vuex": "4.0.0"
+	},
+	"devDependencies": {
+		"@dcloudio/types": "^3.0.13",
+		"@dcloudio/uni-automator": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-cli-shared": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/uni-stacktracey": "3.0.0-alpha-3060320220917001",
+		"@dcloudio/vite-plugin-uni": "3.0.0-alpha-3060320220917001",
+		"@types/node": "^18.7.20",
+		"cross-env": "^7.0.3",
+		"electron": "^20.2.0",
+		"electron-builder": "^23.3.3",
+		"node-sass": "^7.0.3",
+		"nodemon": "^2.0.20",
+		"sass": "^1.55.0",
+		"vite": "^2.9.14",
+		"wait-on": "^6.0.1"
+	}
+}

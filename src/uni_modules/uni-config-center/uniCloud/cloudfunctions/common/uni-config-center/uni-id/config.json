@@ -1,0 +1,52 @@
+{
+	"passwordSecret": "3db242d19a83b08865d082632f8957c2",
+	"tokenSecret": "384b346b818ed3a14795e9168f5832dc",
+	"tokenExpiresIn": 720000,
+	"tokenExpiresThreshold": 600,
+	"passwordErrorLimit": 6,
+	"bindTokenToDevice": true,
+	"passwordErrorRetryTime": 3600,
+	"autoSetInviteCode": false,
+	"forceInviteCode": false,
+	"app-plus": {
+		"tokenExpiresIn": 2592000,
+		"oauth" : {
+			"weixin" : {
+				"appid" : "",
+				"appsecret" : ""
+			},
+			"apple":	{
+				"bundleId": "your APP bundleId"
+			}
+		}
+	},
+	"mp-weixin": {
+		"oauth" : {
+			"weixin" : {
+				"appid" : "",
+				"appsecret" : ""
+			}
+		}
+	},
+	"mp-alipay": {
+		"oauth" : {
+			"alipay" : {
+				"appid" : "alipay appid",
+				"privateKey" : "alipay privateKey"
+			}
+		}
+	},
+	"service": {
+		"sms": {
+			"name": "验证码",
+			"codeExpiresIn": 300,
+			"smsKey": "",
+			"smsSecret": ""
+		},
+		"univerify": {
+			"appid":"your appid",
+			"apiKey": "",
+			"apiSecret": ""
+		}
+	}
+}

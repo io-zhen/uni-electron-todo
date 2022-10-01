@@ -1,0 +1,51 @@
+{
+	"bsonType": "object",
+	"required": ["user_id", "title", "content"],
+	"permission": {
+		"read": "true",
+		"create": "true",
+		"update": "true",
+		"delete": "true"
+	},
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID（用户 ID），系统自动生成"
+		},
+		"parentID": {
+			"bsonType": "string",
+			"title": "分类",
+			"description": "分类 id，参考`todo-category`表",
+			"foreignKey": "todo-category._id"
+		},
+		"title": {
+			"bsonType": "string",
+			"title": "标题",
+			"description": "标题",
+			"label": "标题",
+			"trim": "both"
+		},
+		"status": {
+			"bsonType": "bool",
+			"title": "任务状态",
+			"description": "todo状态：true已完成 false未完成",
+			"defaultValue": false
+		},
+		"publish_date": {
+			"bsonType": "timestamp",
+			"title": "发表时间",
+			"description": "发表时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"updateTime": {
+			"bsonType": "timestamp",
+			"title": "最后修改时间",
+			"description": "最后修改时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		}
+	},
+	"version": "0.0.1"
+}

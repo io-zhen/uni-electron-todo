@@ -1,0 +1,8 @@
+{
+	"name": "sendMessage",
+	"dependencies": {},
+	"extensions": {
+		"uni-cloud-jql": {},
+		"uni-cloud-sms": {}
+	}
+}

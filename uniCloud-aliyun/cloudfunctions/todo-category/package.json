@@ -1,0 +1,7 @@
+{
+  "name": "todo-category",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
